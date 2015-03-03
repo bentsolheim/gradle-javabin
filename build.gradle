@@ -1,7 +1,10 @@
 subprojects {
     apply plugin: 'java'
     apply plugin: 'groovy'
+    apply plugin: 'maven'
 
+    group = 'no.javabin.gradledemo'
+    version = '1.0-SNAPSHOT'
 
     repositories {
         mavenCentral()
