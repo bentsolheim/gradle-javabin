@@ -1,16 +1,5 @@
-apply plugin: 'java'
-
-
-repositories {
-    mavenCentral()
-}
-
-
 dependencies {
-    compile (
-            project(':add-service'),
-            'org.slf4j:slf4j-simple:1.7.10'
-    )
+    compile project(':add-service')
 }
 
 
