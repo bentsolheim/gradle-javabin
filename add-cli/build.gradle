@@ -1,10 +1,8 @@
+apply plugin: 'application'
+
 dependencies {
     compile project(':add-service')
 }
 
 
-jar {
-    manifest {
-        attributes 'Main-Class': 'no.javabin.gradledemo.cli.Application'
-    }
-}
+mainClassName = 'no.javabin.gradledemo.cli.Application'
