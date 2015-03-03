@@ -3,5 +3,5 @@ apply plugin: "jetty"
 
 dependencies {
     compile(project(":add-service"))
-    providedCompile('javax.servlet:javax.servlet-api:3.1.0')
+    providedCompile("javax.servlet:javax.servlet-api:${versions.servletApi}")
 }
