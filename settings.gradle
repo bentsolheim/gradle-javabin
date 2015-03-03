@@ -1,1 +1,1 @@
-include('add-service', 'add-cli')
+include('add-service', 'add-cli', 'add-web')
