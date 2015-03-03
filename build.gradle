@@ -1,5 +1,6 @@
 subprojects {
     apply plugin: 'java'
+    apply plugin: 'groovy'
 
 
     repositories {
@@ -8,8 +9,25 @@ subprojects {
 
 
     dependencies {
-        compile 'org.slf4j:slf4j-simple:1.7.10'
+        compile(
+                'org.codehaus.groovy:groovy-all:2.3.9',
+                'org.slf4j:slf4j-simple:1.7.10'
+        )
         testCompile 'junit:junit:4.12'
+    }
+
+    sourceSets {
+        main {
+            groovy {
+                srcDirs = ['src/main/java']
+            }
+        }
+
+        test {
+            groovy {
+                srcDirs = ['src/test/java']
+            }
+        }
     }
 }
 
