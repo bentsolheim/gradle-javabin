@@ -10,6 +10,9 @@ subprojects {
         mavenCentral()
     }
 
+    configurations {
+        deployerJars
+    }
 
     dependencies {
         compile(
@@ -17,6 +20,7 @@ subprojects {
                 'org.slf4j:slf4j-simple:1.7.10'
         )
         testCompile 'junit:junit:4.12'
+        deployerJars 'org.apache.maven.wagon:wagon-ssh:2.2'
     }
 
     sourceSets {
@@ -30,6 +34,13 @@ subprojects {
             groovy {
                 srcDirs = ['src/test/java']
             }
+        }
+    }
+
+    uploadArchives.repositories.mavenDeployer {
+        configuration = configurations.deployerJars
+        repository(url: "scp://repos.mycompany.com/releases") {
+            authentication(userName: "me", password: "myPassword")
         }
     }
 }
