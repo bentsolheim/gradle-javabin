@@ -5,3 +5,10 @@ dependencies {
     compile(project(":add-service"))
     providedCompile("javax.servlet:javax.servlet-api:${versions.servletApi}")
 }
+
+
+task generateAppDataFile {
+
+    def appDataFile = new File("$buildDir/appdata.json")
+    appDataFile.write("""{ "version": "$version", "buildDate": "${new Date()}" }""")
+}
