@@ -10,5 +10,15 @@ dependencies {
 task generateAppDataFile {
 
     def appDataFile = new File("$buildDir/appdata.json")
-    appDataFile.write("""{ "version": "$version", "buildDate": "${new Date()}" }""")
+    outputs.file appDataFile
+
+    doLast {
+        appDataFile.write("""{ "version": "$version", "buildDate": "${new Date()}" }""")
+    }
+}
+
+
+war {
+    from(generateAppDataFile)
+    dependsOn.addAll(['generateAppDataFile'])
 }
