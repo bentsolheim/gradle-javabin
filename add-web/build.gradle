@@ -1,5 +1,16 @@
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+
+    dependencies {
+        classpath 'org.akhikhl.gretty:gretty:+'
+    }
+}
+
 apply plugin: "war"
-apply plugin: "jetty"
+apply plugin: "org.akhikhl.gretty"
+
 
 dependencies {
     compile(project(":add-service"))
